@@ -1,0 +1,57 @@
+<%-include('../cabecalho.ejs')%>
+
+    <form method="post">
+        <input type="text" class="pesquisa" name="pesquisa" placeholder="Digite o anime que deseja pesquisar:">
+        <input type="submit" value="Pesquisar">
+    </form>
+    <table>
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data Lançamento</th>
+            <th>Data Encerramento</th>
+            <th>Número de episódios</th>
+            <th>Banner</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+        <% Anime.forEach(function(anime){ %>
+        <tr>
+            <td>
+                <%=anime.titulo%>
+            </td>
+            <td>
+                <%=anime.descricao%>
+            </td>
+            <td>
+                <%let z = anime.dataDeLancamento.getMonth()+1%>     
+                <%let y = anime.dataDeEncerrmento.getMonth()+1%>        
+                
+                <%=anime.dataDeLancamento.getDate()+1+"/"+z+"/"+anime.dataDeLancamento.getFullYear()%>
+            </td>
+            <td>
+                <%=anime.dataDeEncerrmento.getDate()+1+"/"+y+"/"+anime.dataDeEncerrmento.getFullYear()%>
+            </td>
+            <td>
+                <%=anime.numEP%>
+            </td>
+            <td>
+                <img class="img-banner" 
+                    src="/fotos/<%=anime.banner%>" 
+                    alt="Banner">
+            </td>
+            <td>
+                <a href="/Anime/edt/<%=anime._id%>">
+                    <img class="img-responsive" src="/edit.png" alt="Editar">
+                </a>
+                
+            </td>
+            <td>
+                <a href="/Anime/del/<%=anime._id%>">
+                    <img class="img-responsive" src="/delete.png" alt="Deletar">
+                </a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+<%-include('../rodape.ejs')%>

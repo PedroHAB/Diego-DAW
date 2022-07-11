@@ -1,0 +1,17 @@
+<%-include('../cabecalho.ejs')%>
+    <form method="post" enctype="multipart/form-data">
+        Título: <input type="text" name="titulo" 
+            placeholder="Digite seu Nome" required ><br>
+        Descrição: <input type="text" name="descricao" 
+            placeholder="Digite a descrição" required ><br>   
+        DataL: <input type="date" name="dataDeLancamento" 
+            placeholder="Bote a data de lançamento" required ><br>    
+        DataF: <input type="date" name="dataDeEncerrmento" 
+            placeholder="Bote a data de lançamento" required ><br>      
+        NumEp: <input type="number" name="numEP" 
+            placeholder="Digite o número de Ep" required><br>
+        Foto: <input type="file" name="banner" 
+            accept="image/*" required><br>
+        <input type="submit" value="Salvar">
+    </form>
+<%-include('../rodape.ejs')%>
